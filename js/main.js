@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Hero frame sequence animation (replaces video for lighter page)
+    /* Hero: animação em plano sequencial (alternativa ao vídeo, site mais leve)
     const heroFrame = document.getElementById('heroFrame');
     if (heroFrame) {
         const frameCount = 41;
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         advanceFrame();
     }
+    */
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
