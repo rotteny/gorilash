@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rotteny/gorilash/main/img/logo-gorila2.jpg" alt="Gorila Software House" width="200">
+</p>
+
 # Gorila Software House — Site Institucional
 
 Site institucional da **Gorila Software House**, empresa de desenvolvimento de software especializada em arquitetura de alto padrão e soluções robustas.
@@ -25,10 +29,11 @@ O repositório contém apenas o conteúdo do site (raiz = document root):
 │   └── main.js         # Lógica de interação
 ├── img/
 │   ├── hero/           # Frames da animação do hero (41 imagens)
-│   ├── trackbase.png   # Screenshot do projeto TrackBase
-│   ├── tikbot.png      # Screenshot do projeto TikBot
-│   ├── acca.png        # Screenshot do projeto ACCA
-│   ├── gtsistema.png   # Screenshot do projeto GTSistema
+│   ├── carousel/       # Imagens do carrossel de projetos
+│   │   ├── trackbase.png
+│   │   ├── tikbot.png
+│   │   ├── acca.png
+│   │   └── gtsistema.png
 │   └── logo-gorila3.jpg
 ├── video/              # (legado, não utilizado)
 └── README.md
