@@ -14,6 +14,8 @@ Landing page responsiva que apresenta a empresa, seus projetos e canais de conta
 
 ## Estrutura de Pastas
 
+O repositório contém apenas o conteúdo do site (raiz = document root):
+
 ```
 .
 ├── index.html          # Página principal
@@ -31,6 +33,9 @@ Landing page responsiva que apresenta a empresa, seus projetos e canais de conta
 ├── video/              # (legado, não utilizado)
 └── README.md
 ```
+
+**Nginx:** aponte o `root` para a pasta do clone (ex: `/var/www/gorilash`).  
+**GitHub Pages:** use "Deploy from a branch" com pasta `/(root)`.
 
 ## Funcionalidades
 
