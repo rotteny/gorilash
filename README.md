@@ -63,18 +63,6 @@ O repositório contém apenas o conteúdo do site (raiz = document root):
 - **Carreiras** — Dialog com informações para candidatos
 - **Contato** — Link para a seção Fale Conosco
 
-## Como Executar
-
-O site é estático e pode ser servido de várias formas:
-
-### Node.js (npx)
-```bash
-npx serve
-```
-
-### Abrir diretamente
-Abra o arquivo `index.html` no navegador. Algumas funcionalidades (como o elemento `<dialog>`) podem ter comportamento diferente dependendo do protocolo (file:// vs http://).
-
 ## Design System
 
 - **Fontes**: Montserrat (títulos), JetBrains Mono (corpo)
