@@ -67,12 +67,6 @@ O repositório contém apenas o conteúdo do site (raiz = document root):
 
 O site é estático e pode ser servido de várias formas:
 
-### Servidor HTTP simples (Python)
-```bash
-python -m http.server 8000
-```
-Acesse: http://localhost:8000
-
 ### Node.js (npx)
 ```bash
 npx serve
