@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gorila Software House</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="A Gorila Software House transmite solidez, tecnologia e autoridade. Desenvolvimento de software com arquitetura padrão Ouro liderada por Seniores.">
+
+    <!-- Google Fonts: Montserrat (Headings) and JetBrains Mono (Body/Details) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <span class="logo-text">GORILA<br><span class="logo-sub">SOFTWARE HOUSE</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link">Início</a>
+                <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#contato" class="btn btn-primary">Fale Conosco</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-geometric-bg"></div>
+            <div class="container">
+                <div class="hero-grid-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Desenvolvimento Robusto.<br><span class="highlight">Arquitetura
+                                Sênior.</span>
+                        </h1>
+                        <p class="hero-subtitle">Convertendo complexidade em soluções sólidas e estruturadas. Nossa
+                            tecnologia
+                            impulsiona seu negócio com a força e estabilidade que você precisa.</p>
+                        <div class="hero-cta">
+                            <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                            <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+                        </div>
+                    </div>
+                    <!-- Decorative hardware image block in the hero -->
+                    <div class="hero-image-wrapper">
+                        <div class="hero-sequence" role="img" aria-label="Animação do logo Gorila">
+                            <img src="img/hero/ezgif-frame-001.jpg" alt="" class="hero-sequence-frame" id="heroFrame">
+                        </div>
+                        <div class="polygonal-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section id="projetos" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Nossos Projetos</h2>
+                <p class="section-subtitle">Explore algumas de nossas soluções de alta performance.</p>
+
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" aria-label="Anterior">&larr;</button>
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <!-- TrackBase -->
+                            <li class="carousel-slide current-slide">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img src="img/trackbase.png" alt="TrackBase Dashboard" class="project-img" data-lightbox-src="img/trackbase.png">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">TrackBase</h3>
+                                        <p class="project-desc">Plataforma de rastreamento de equipe, monitore seus
+                                            colaboradores em tempo real, controle de custo de delocamento transparente,
+                                            geofances com notificações, relatórios detalhados e muito mais.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- TikBot -->
+                            <li class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img src="img/tikbot.png" alt="TikBot Dashboard" class="project-img" data-lightbox-src="img/tikbot.png">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">TikBot</h3>
+                                        <p class="project-desc">Sistema simples de agendamento de pequenos negocioas.
+                                            Corte custo com atendentes e agendamentos manuais. O TickBot resolve para
+                                            você.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ACCA -->
+                            <li class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img src="img/acca.png" alt="ACCA Dashboard" class="project-img" data-lightbox-src="img/acca.png">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">ACCA</h3>
+                                        <p class="project-desc">Automação de comunicação de ordem de serviços. O ACCA
+                                            utiliza inteligência artificial para automatizar a comunicação de ordem de
+                                            serviços.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- GTSistema -->
+                            <li class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img src="img/gtsistema.png" alt="GTSistema Dashboard" class="project-img" data-lightbox-src="img/gtsistema.png">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">GTSistema</h3>
+                                        <p class="project-desc">Nosso sistema de controle de contratos pode ser
+                                            utilizado para gerenciar contratos de qualquer tipo.</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="Próximo">&rarr;</button>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-indicator" aria-label="Slide 1"></button>
+                    <button class="carousel-indicator" aria-label="Slide 2"></button>
+                    <button class="carousel-indicator" aria-label="Slide 3"></button>
+                    <button class="carousel-indicator" aria-label="Slide 4"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Fale Conosco</h2>
+                    <p class="section-subtitle">Pronto para elevar o padrão da sua arquitetura de software? Entre em
+                        contato e vamos construir algo robusto.</p>
+
+                    <div class="contact-cards">
+                        <!-- WhatsApp Card -->
+                        <a href="https://wa.me/5586994281351" target="_blank" class="contact-card">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 448 512" width="40" height="40" fill="currentColor">
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                </svg>
+                            </div>
+                            <h3>WhatsApp</h3>
+                            <p>(86) 99428-1351</p>
+                            <span class="contact-action">Iniciar conversa</span>
+                        </a>
+
+                        <!-- Email Card -->
+                        <a href="mailto:contato@gorilash.com.br" class="contact-card">
+                            <div class="contact-icon"
+                                style="font-family: var(--font-heading); font-size: 3.5rem; line-height: 1;">@</div>
+                            <h3>E-mail</h3>
+                            <p>contato@gorilash.com.br</p>
+                            <span class="contact-action">Enviar e-mail</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand-giant">
+                <img src="img/logo-gorila3.jpg" alt="Gorila Software House Logomark" class="logo-img-giant">
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Institucional</h4>
+                    <a href="#" class="dialog-trigger" data-dialog="sobre-nos">Sobre Nós</a>
+                    <a href="#" class="dialog-trigger" data-dialog="carreiras">Carreiras</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gorila Software House. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Dialog Sobre Nós -->
+    <dialog id="dialog-sobre-nos" class="institutional-dialog" aria-labelledby="sobre-nos-title">
+        <div class="dialog-inner">
+            <button class="dialog-close" aria-label="Fechar">&times;</button>
+            <h2 id="sobre-nos-title" class="dialog-title">Sobre a Gorila Software House</h2>
+            <div class="dialog-body">
+                <p>A <strong>Gorila Software House</strong> nasceu da convicção de que software robusto é a base de negócios sólidos. Somos uma empresa de desenvolvimento especializada em arquitetura de software de alto padrão, liderada por profissionais seniores que transformam complexidade em soluções estruturadas e escaláveis.</p>
+                <p>Nossa abordagem combina expertise técnica com visão de negócio. Desenvolvemos sistemas que não apenas funcionam — eles evoluem com sua empresa, mantendo a estabilidade e a performance que você precisa para crescer com confiança.</p>
+                <p>Seja em rastreamento de equipes, automação de comunicação, agendamento inteligente ou gestão de contratos, cada projeto é tratado com o mesmo compromisso: entregar tecnologia que transmite solidez, autoridade e resultados mensuráveis.</p>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Dialog Carreiras -->
+    <dialog id="dialog-carreiras" class="institutional-dialog" aria-labelledby="carreiras-title">
+        <div class="dialog-inner">
+            <button class="dialog-close" aria-label="Fechar">&times;</button>
+            <h2 id="carreiras-title" class="dialog-title">Carreiras na Gorila</h2>
+            <div class="dialog-body">
+                <p>Na <strong>Gorila Software House</strong>, acreditamos que grandes soluções vêm de times que pensam em arquitetura, qualidade e evolução contínua.</p>
+                <h3>O que buscamos</h3>
+                <p>Profissionais que valorizam código limpo, documentação e boas práticas. Desenvolvedores com visão de sistema, que gostam de resolver problemas complexos e de aprender constantemente.</p>
+                <h3>Como trabalhamos</h3>
+                <p>Ambiente técnico, projetos desafiadores e liberdade para propor melhorias. Trabalhamos com tecnologias modernas e metodologias que priorizam entrega de valor.</p>
+                <h3>Interessado?</h3>
+                <p>Envie seu currículo e uma breve apresentação para <a href="mailto:contato@gorilash.com.br">contato@gorilash.com.br</a> com o assunto &quot;Carreiras&quot;. Teremos prazer em conhecer seu perfil.</p>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Lightbox para visualização completa das imagens -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Fechar">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

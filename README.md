@@ -15,7 +15,7 @@ Landing page responsiva que apresenta a empresa, seus projetos e canais de conta
 ## Estrutura de Pastas
 
 ```
-public/
+.
 ├── index.html          # Página principal
 ├── css/
 │   └── style.css       # Estilos globais e componentes
@@ -28,6 +28,7 @@ public/
 │   ├── acca.png        # Screenshot do projeto ACCA
 │   ├── gtsistema.png   # Screenshot do projeto GTSistema
 │   └── logo-gorila3.jpg
+├── video/              # (legado, não utilizado)
 └── README.md
 ```
 
@@ -58,14 +59,12 @@ O site é estático e pode ser servido de várias formas:
 
 ### Servidor HTTP simples (Python)
 ```bash
-cd public
 python -m http.server 8000
 ```
 Acesse: http://localhost:8000
 
 ### Node.js (npx)
 ```bash
-cd public
 npx serve
 ```
 
