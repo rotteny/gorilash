@@ -702,6 +702,25 @@ a {
     color: var(--color-secondary-gray);
 }
 
+.map-frame-wrapper {
+    border: 1px solid var(--color-border-geo);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.map-frame-wrapper iframe {
+    display: block;
+    width: 100%;
+    min-height: 360px;
+    border: 0;
+}
+
+.map-address {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
 /* =========================================================================
    CONTACT SECTION
    ========================================================================= */
