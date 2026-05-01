@@ -10,6 +10,10 @@
     <meta name="description"
         content="A Gorila Software House transmite solidez, tecnologia e autoridade. Desenvolvimento de software com arquitetura padrão Ouro liderada por Seniores.">
 
+    <!-- Google Maps embed: conexão antecipada -->
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://maps.google.com">
+
     <!-- Google Fonts: Montserrat (Headings) and JetBrains Mono (Body/Details) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -306,16 +310,17 @@
             <h2 id="localizacao-title" class="dialog-title">Onde Estamos</h2>
             <div class="dialog-body">
                 <p class="map-address">Endereço:Rua Samuel Santos,1235 - Pindorama, Parnaíba-PI, 64215-264</p>
-                <div class="map-frame-wrapper">
-                    <iframe title="Localização da Gorila Software House"
-                        src="https://www.google.com/maps?q=Gorila+Software+House&output=embed"
-                        style="border:0; pointer-events: none;" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-                    </iframe>
-                </div>
+                <div class="map-frame-wrapper map-embed-slot" id="map-embed-slot"></div>
             </div>
         </div>
     </dialog>
+
+    <!-- Mapa: iframe carrega off-screen com a página e é movido ao abrir o modal -->
+    <div id="map-embed-root" class="map-embed-preload" aria-hidden="true">
+        <iframe id="map-embed-iframe" title="Localização da Gorila Software House"
+            src="https://www.google.com/maps?q=Gorila+Software+House&output=embed" loading="eager"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
 
     <!-- Lightbox para visualização completa das imagens -->
     <div id="lightbox" class="lightbox" aria-hidden="true">

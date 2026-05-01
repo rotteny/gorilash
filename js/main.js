@@ -75,6 +75,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mapa: iframe pré-carrega off-screen; ao abrir o modal, move para o slot (mesmo elemento = sem novo load)
+    const dialogLocalizacao = document.getElementById('dialog-localizacao');
+    const mapEmbedSlot = document.getElementById('map-embed-slot');
+    const mapEmbedIframe = document.getElementById('map-embed-iframe');
+
+    if (dialogLocalizacao && mapEmbedSlot && mapEmbedIframe) {
+        const ensureMapInModal = () => {
+            if (!dialogLocalizacao.open) return;
+            if (!mapEmbedSlot.contains(mapEmbedIframe)) {
+                mapEmbedSlot.appendChild(mapEmbedIframe);
+            }
+        };
+        const mo = new MutationObserver(ensureMapInModal);
+        mo.observe(dialogLocalizacao, { attributes: true, attributeFilter: ['open'] });
+    }
+
     // Simple smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
