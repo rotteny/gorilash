@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Dialogs institucionais (Sobre Nós, Carreiras)
+    // Dialogs institucionais (Sobre Nós, Carreiras, Localização)
     document.querySelectorAll('.dialog-trigger').forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
