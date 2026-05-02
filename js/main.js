@@ -35,17 +35,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     */
 
-    // Navbar scroll effect
+    // Navbar scroll effect — usa classe CSS em vez de estilos inline
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.padding = '1rem 0';
-            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
-        } else {
-            navbar.style.padding = '1.5rem 0';
-            navbar.style.boxShadow = 'none';
-        }
-    });
+        navbar.classList.toggle('navbar--scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // Menu hamburguer (mobile)
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks = document.getElementById('nav-menu');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', String(!isOpen));
+            navLinks.classList.toggle('nav-links--open', !isOpen);
+        });
+
+        // Fecha o menu ao clicar em qualquer link de navegação
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('nav-links--open');
+            });
+        });
+
+        // Fecha o menu ao pressionar Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('nav-links--open')) {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('nav-links--open');
+                hamburger.focus();
+            }
+        });
+    }
 
     // Dialogs institucionais (Sobre Nós, Carreiras, Localização)
     document.querySelectorAll('.dialog-trigger').forEach(trigger => {
@@ -134,6 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.children);
     const totalSlides = slides.length;
 
+    // Calcula a largura do track dinamicamente com base no número total de slides
+    // (slideCount + 2 clones), eliminando o valor hardcoded de 600% no CSS
+    const updateTrackWidth = () => {
+        track.style.width = `${totalSlides * 100}%`;
+        slides.forEach(slide => {
+            slide.style.width = `${100 / totalSlides}%`;
+            slide.style.flex = `0 0 ${100 / totalSlides}%`;
+        });
+    };
+    updateTrackWidth();
+
     let slideIndex = 1;
     let currentRealIndex = 0;
     let isAnimating = false;
@@ -201,7 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTransform(false);
     updateDots();
 
-    window.addEventListener('resize', () => applyTransform(false));
+    window.addEventListener('resize', () => {
+        updateTrackWidth();
+        applyTransform(false);
+    }, { passive: true });
 
     if (prevButton) prevButton.addEventListener('click', goPrev);
     if (nextButton) nextButton.addEventListener('click', goNext);
@@ -213,8 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetIndex >= 0 && targetIndex !== currentRealIndex) moveToIndex(targetIndex);
     });
 
+    // Autorotate do carrossel — desativado se o usuário preferir movimento reduzido
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
     let autoRotateInterval;
     const startAutoRotate = () => {
+        if (prefersReducedMotion.matches) return;
         autoRotateInterval = setInterval(goNext, 5000);
     };
     const stopAutoRotate = () => clearInterval(autoRotateInterval);
@@ -223,7 +264,23 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('mouseleave', startAutoRotate);
     [nextButton, prevButton].forEach(btn => { if (btn) btn.addEventListener('click', stopAutoRotate); });
 
+    // Atualiza se o usuário mudar a preferência em tempo de execução
+    prefersReducedMotion.addEventListener('change', () => {
+        if (prefersReducedMotion.matches) {
+            stopAutoRotate();
+        } else {
+            startAutoRotate();
+        }
+    });
+
     startAutoRotate();
+
+    // Autoplay do vídeo hero — pausa se o usuário preferir movimento reduzido
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo && prefersReducedMotion.matches) {
+        heroVideo.pause();
+        heroVideo.removeAttribute('autoplay');
+    }
 
     // Lightbox para visualização completa das imagens
     const lightbox = document.getElementById('lightbox');

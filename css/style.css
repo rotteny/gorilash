@@ -258,6 +258,79 @@ a {
     width: 100%;
 }
 
+/* Navbar: estado ao rolar a página (substituição dos estilos inline do JS) */
+.navbar--scrolled {
+    padding: 1rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburguer button — visível apenas em mobile */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+}
+
+.nav-hamburger__bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary-dark);
+    border-radius: 2px;
+    transition: transform var(--transition-smooth), opacity var(--transition-fast);
+    transform-origin: center;
+}
+
+/* Estado aberto: transforma em X */
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger__bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================================
+   FOCUS VISIBLE — acessibilidade para navegação por teclado
+   ========================================================================= */
+:focus-visible {
+    outline: 2px solid var(--color-secondary-gray);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Em fundos escuros (projetos, contato) o outline precisa de contraste invertido */
+.projects-section :focus-visible,
+.contact-section :focus-visible {
+    outline-color: var(--color-action-white);
+}
+
+/* Botões com clip-path perdem a borda visual — reforçar com box-shadow */
+.btn:focus-visible,
+.carousel-btn:focus-visible,
+.carousel-indicator:focus-visible,
+.feature-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-secondary-gray);
+}
+
+.projects-section .btn:focus-visible,
+.projects-section .carousel-btn:focus-visible,
+.projects-section .carousel-indicator:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-action-white);
+}
+
 /* =========================================================================
    HERO SECTION
    ========================================================================= */
@@ -417,7 +490,7 @@ a {
     list-style: none;
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    width: 600%;
+    /* Largura calculada dinamicamente pelo JS com base no número real de slides */
     will-change: transform;
     backface-visibility: hidden;
 }
@@ -428,10 +501,10 @@ a {
 }
 
 .carousel-slide {
-    flex: 0 0 16.666%;
-    width: 16.666%;
+    /* flex e width calculados dinamicamente pelo JS */
     padding: 0;
     box-sizing: border-box;
+    min-width: 0;
 }
 
 .carousel-slide.carousel-clone {
@@ -1071,9 +1144,44 @@ a {
 }
 
 @media (max-width: 768px) {
+    /* Hamburguer visível, nav-links escondida por padrão */
+    .nav-hamburger {
+        display: flex;
+    }
+
     .nav-links {
-        display: none;
-        /* Mobile menu would go here */
+        /* Estado fechado: fora da viewport, acima da navbar */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(248, 250, 252, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 6rem 2rem 3rem;
+        z-index: 105;
+        transform: translateY(-110%);
+        transition: transform var(--transition-smooth);
+        border-bottom: 2px solid var(--color-border-geo);
+    }
+
+    /* Estado aberto */
+    .nav-links.nav-links--open {
+        transform: translateY(0);
+    }
+
+    /* Links maiores para toque em mobile */
+    .nav-links .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .nav-links .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
     }
 
     .hero-title {
@@ -1082,5 +1190,40 @@ a {
 
     .logo-img-giant {
         max-width: 250px;
+    }
+}
+
+/* =========================================================================
+   PREFERS-REDUCED-MOTION — respeita preferências de acessibilidade
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+    /* Desativa todas as transições e animações CSS */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Carrossel: sem deslizamento animado */
+    .carousel-track {
+        transition: none;
+    }
+
+    /* Navbar: sem transição de scroll */
+    .navbar {
+        transition: none;
+    }
+
+    /* Hero image: sem hover scale */
+    .hero-image-wrapper:hover {
+        transform: none;
+    }
+
+    /* Btn: sem efeito sliding */
+    .btn::before {
+        display: none;
     }
 }
