@@ -54,6 +54,9 @@ O repositório contém apenas o conteúdo do site (raiz = document root):
 - Navegação por setas, indicadores e rotação automática
 - Lightbox ao clicar na imagem para visualização ampliada
 
+### Serviços (Seção Recursos)
+- Cards de desenvolvimento, consultoria e manutenção
+
 ### Contato
 - Cards para WhatsApp e e-mail
 - Links diretos para iniciar conversa
@@ -61,6 +64,7 @@ O repositório contém apenas o conteúdo do site (raiz = document root):
 ### Institucional
 - **Sobre Nós** — Dialog com texto de apresentação da empresa
 - **Carreiras** — Dialog com informações para candidatos
+- **Localização** — Dialog com mapa e endereço
 - **Contato** — Link para a seção Fale Conosco
 
 ## Design System
