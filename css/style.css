@@ -208,13 +208,28 @@ a {
 .btn-primary:hover { background-color: var(--accent-dim); }
 
 .btn-outline {
-    background-color: transparent;
-    color: var(--text);
-    box-shadow: inset 0 0 0 1.5px var(--text);
-}
-.btn-outline:hover {
     background-color: var(--text);
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-outline::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: var(--bg);
+    z-index: -2;
+    clip-path: inherit;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-outline:hover {
     color: var(--bg);
+}
+
+.btn-outline:hover::after {
+    background-color: transparent;
 }
 
 /* =========================================================================
@@ -1087,14 +1102,29 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 0.6rem 1.25rem;
-    border: 1px solid var(--text);
-    transition: background-color var(--transition-fast), color var(--transition-fast);
+    background-color: var(--text);
+    position: relative;
+    z-index: 1;
     clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    transition: color var(--transition-fast);
+}
+
+.contact-action::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background-color: var(--surface);
+    z-index: -2;
+    clip-path: inherit;
+    transition: background-color var(--transition-fast);
 }
 
 .contact-card:hover .contact-action {
-    background-color: var(--text);
     color: var(--bg);
+}
+
+.contact-card:hover .contact-action::after {
+    background-color: transparent;
 }
 
 /* =========================================================================
@@ -1468,11 +1498,13 @@ a {
 }
 :root[data-theme="dark"] .contact-card .contact-action {
     color: var(--text-on-surface);
-    border-color: var(--text-on-surface);
+    background-color: var(--text-on-surface);
 }
 :root[data-theme="dark"] .contact-card:hover .contact-action {
-    background-color: var(--text-on-surface);
     color: #FFFFFF;
+}
+:root[data-theme="dark"] .contact-card:hover .contact-action::after {
+    background-color: transparent;
 }
 
 /* Dialogs em dark: bg branco, texto escuro */
@@ -1631,13 +1663,112 @@ a {
 }
 
 @media (max-width: 768px) {
-    .nav-links a:not(.btn) { display: none; }
+    /* Navbar compacta */
+    .navbar {
+        padding: 0.75rem 0 !important;
+    }
 
+    .navbar .container {
+        padding: 0 1rem;
+    }
+
+    .logo-symbol {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-text {
+        font-size: 1.15rem;
+    }
+
+    .logo-sub {
+        font-size: 0.5rem;
+        letter-spacing: 2px;
+        margin-top: 2px;
+    }
+
+    .nav-links {
+        gap: 0.75rem;
+    }
+
+    .nav-links a:not(.btn) {
+        display: none;
+    }
+
+    .nav-links .btn,
+    .nav-links .btn-primary,
+    .nav-links a.btn {
+        display: none !important; /* Oculta o botão "Fale Conosco" do cabeçalho no celular */
+    }
+
+    .theme-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Hero Section ajustada */
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .hero-image-wrapper {
+        display: none;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 1.25rem;
+        width: 100%;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+    }
+
+    .hero-cta .btn + .btn {
+        margin-top: 0.5rem;
+    }
+
+    /* Estatísticas e Projetos */
     .stats-grid { grid-template-columns: 1fr; }
     .stat { border-left: none; border-top: 1px solid var(--border); }
     .stat:first-child { border-top: none; }
 
-    .logo-img-giant { max-width: 120px; }
+    /* Footer responsivo */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .footer-brand-giant {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .logo-img-giant {
+        max-width: 180px;
+        margin: 0 auto;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        width: 100%;
+    }
+
+    .link-group {
+        text-align: center;
+    }
+
+    .link-group a {
+        margin: 0 auto 0.8rem auto;
+    }
+
     .showcase-name { font-size: 1.75rem; }
     .projects-section { padding: 5rem 0; }
 

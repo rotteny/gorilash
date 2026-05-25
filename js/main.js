@@ -276,6 +276,64 @@
                 start();
             }
 
+            // Suporte a swipe de toque e arrasto de mouse para trocar slides
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchEndX = 0;
+            let touchEndY = 0;
+            let isDragging = false;
+
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+                touchStartY = e.changedTouches[0].clientY;
+                stop();
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+                start();
+            }, { passive: true });
+
+            carousel.addEventListener('mousedown', (e) => {
+                if (e.button !== 0) return;
+                isDragging = true;
+                touchStartX = e.clientX;
+                touchStartY = e.clientY;
+                stop();
+            });
+
+            carousel.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                touchEndX = e.clientX;
+                touchEndY = e.clientY;
+                handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+                start();
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    start();
+                }
+            });
+
+            function handleSwipe(startX, startY, endX, endY) {
+                const diffX = endX - startX;
+                const diffY = endY - startY;
+                
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+                    if (diffX < 0) {
+                        go(index + 1);
+                    } else {
+                        go(index - 1);
+                    }
+                    resetAutoplay();
+                }
+            }
+
             // Pausa no hover (mouse)
             carousel.addEventListener('mouseenter', stop);
             carousel.addEventListener('mouseleave', start);
