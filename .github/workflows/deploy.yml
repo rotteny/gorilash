@@ -18,7 +18,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             set -e
-            cd /home/gorilash/public_html
+            cd /var/www/gorilash
             git fetch origin
             git reset --hard origin/main
             echo "Deploy gorilash concluído: $(git log --oneline -1)"
